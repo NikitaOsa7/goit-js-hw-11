@@ -16,6 +16,11 @@ let totalImages = 0;
 function onSearch(event) {
     event.preventDefault();
     refs.gallery.innerHTML = '';
-    refs.loadMoreBtn.classList.add('is-hidden')
+    refs.loadMoreBtn.classList.add('is-hidden');
+    imagesApiService.query = event.currentTarget.searchQuery.value;
+    imagesApiService.resetPage();
+    totalImages = 0;
 };
+
+function renserImages
 
