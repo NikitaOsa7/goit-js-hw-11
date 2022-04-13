@@ -30,12 +30,12 @@ async function fetchGallery() {
         return renderImages(newImages);
     }
     catch (error) {
-        onFetchError();
+        onFetchError(error);
     };
 };
 
-function renderImages() {
-    if (images.hits === 0) {
+function renderImages(images) {
+    if (images.hits.length === 0) {
         refs.loadMoreBtn.classList.add('is-hidden');
         Notify.failure('Sorry, there are no images matching your search query. Please try again.');
     } else {
