@@ -1,9 +1,9 @@
 import './sass/main.scss';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import "simplelightbox/dist/simple-lightbox.min.css";
 import SimpleLightbox from "simplelightbox";
+import "simplelightbox/dist/simple-lightbox.min.css";
 import ImagesApiService from './fetchImages';
-import simpleLightbox from 'simplelightbox';
+
 
 const refs = {
     searchForm: document.querySelector(".search-form"),
@@ -21,6 +21,7 @@ function onSearch(event) {
     imagesApiService.query = event.currentTarget.searchQuery.value;
     imagesApiService.resetPage();
     totalImages = 0;
+    fetchGallery();
 };
 
 async function fetchGallery() {
