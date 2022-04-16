@@ -17,6 +17,8 @@ let totalImages = 0;
 refs.searchForm.addEventListener("submit", onSearch);
 refs.loadMoreBtn.addEventListener("click", fetchGallery);
 
+const totalHits = onSearch.hits
+
 function onSearch(event) {
     event.preventDefault();
     refs.gallery.innerHTML = '';
@@ -26,6 +28,11 @@ function onSearch(event) {
     totalImages = 0;
     fetchGallery();
 };
+
+function onFetchError(error) {
+    Notify.failure('Oops, error');
+    console.log(error);
+}
 
 async function fetchGallery() {
     try {
@@ -69,7 +76,7 @@ function renderImages(images) {
 
         totalImages += 40;
         if (totalImages === 40) {
-            Notify.success(`We found ${totalHits} images for you.`)
+            Notify.success(`We found ${images.totalHits} images for you.`)
         };
         if (images.totalHits <= totalImages) {
             Notify.failure("We're sorry, but you've reached the end of search results.")
@@ -86,8 +93,5 @@ function renderImages(images) {
     };
 };
 
-function onFetchError() {
-    Notify.failure('Oops, there is no country with that name');
-    console.log(error);
-}
+
 
