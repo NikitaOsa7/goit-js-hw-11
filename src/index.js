@@ -15,7 +15,7 @@ const imagesApiService = new ImagesApiService();
 let totalImages = 0;
 
 refs.searchForm.addEventListener("submit", onSearch);
-refs.loadMoreBtn.addEventListener("click", fetchGallery)
+refs.loadMoreBtn.addEventListener("click", fetchGallery);
 
 function onSearch(event) {
     event.preventDefault();
