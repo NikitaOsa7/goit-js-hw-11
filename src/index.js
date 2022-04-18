@@ -1,7 +1,7 @@
 import './sass/main.scss';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
+import SimpleLightbox from "simplelightbox";
 import ImagesApiService from './fetchImages';
 
 
@@ -85,7 +85,7 @@ function renderImages(images) {
     };
     const lightBox = new SimpleLightbox('.gallery div', { captionDelay: 250 });
     if (totalImages > 40) {
-        lightbox.refresh();
+        lightBox.refresh();
         const { height: cardHeight } = document
             .querySelector(".gallery")
             .firstElementChild.getBoundingClientRect();
