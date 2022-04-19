@@ -52,7 +52,7 @@ function renderImages(images) {
         Notify.failure('Sorry, there are no images matching your search query. Please try again.');
     } else {
         const markup = images.hits.map(({ webformatURL, largeImageURL, tags, likes, views, comments, downloads }) => `
-        <div class ="photo-card" href =""${largeImageURL}>
+        <div class ="photo-card" href ="${largeImageURL}">
             <img class = "gallery__image" src = "${webformatURL}" alt ="${tags}" loading = "lazy" />
             <div class ="info">
                 <p class="info-item">
